@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <div class="jumbotron">
+
+        <p>You are on your Dashboard</p>
+        <p>{{ user.get_monthly_steps }}</p>
+        {% for step in user.stepsList %}
+            <div>{{ step.insertion_date}}, {{ step.steps}}</div>
+        {% endfor %}
+
+       <a href="{% url 'add_steps' %}" >Add steps</a>
+    </div>
+
+{% endblock %}
