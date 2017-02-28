@@ -3,15 +3,15 @@
 
 {% block content %}
     {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p style="color:white;text-align: center;">Kasutajanimi ja parool ei ühildu. Proovi uuesti.</p>
 {% endif %}
 
 {% if next %}
     {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
+    <p style="color:white;text-align: center;">Teie kontol ei ole juurdepääsu sellele lehele. Jätkamiseks,
+     palun logige sisse kontoga, millel on juurdepääs.</p>
     {% else %}
-    <p>Please login to see this page.</p>
+    <p style="color:white;text-align: center;">Logi sisse et minna lehele.</p>
     {% endif %}
 {% endif %}
  <div class="container">
@@ -19,8 +19,9 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title"></h3>
                     </div>
+
                     <div class="panel-body">
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}

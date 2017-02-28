@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+        <div class="top">
+        <h2>Samme kokku</h2>
+        {% for my_user in data %}
+            <div>{{ my_user.username }} {{ my_user.steps__steps__sum }}</div>
+         {% endfor %}
+        <h2>Parim päev</h2>
+        {% for my_user in data1 %}
+            <div>{{ my_user.username }} {{ my_user.steps__steps__max }}</div>
+        {% endfor %}
+        </div>
+    {% endblock %}
+
+

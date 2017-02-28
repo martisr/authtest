@@ -1,23 +1,31 @@
-{% load staticfiles %}
-
+{% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Auth Demo</title>
-                <!-- Core CSS - Include with every page -->
-                <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-                </head>
-                <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'log/style.css' %}" />
+    <title>Sammukas</title>
+    {% if user.is_authenticated %}
+{#        <h1>Tere {{ user.username }} !!!</h1>#}
+     <div class ="nav">
+            <ul>
+                <li><a href="{% url 'home' %}">{{ user.username }}</a></li>
+                <li><b><a href="{% url 'add_steps' %}">Lisa sammud</a></b></li>
 
-                    {% if user.is_authenticated %}
-                        <li><a href="/logout">Logout</a></li>
-                        <p>Welcome {{ user.username}} !!!</p>
-                    {% endif %}
+                <li><a href="{% url 'top' %}">Top</a></li>
+                <li><a href="/logout">Logi välja</a></li>
+            </ul>
+     </div>
+</head>
+<body>
 
-                {% block content %}
-                {% endblock %}
 
-            </body>
-        </html>
+
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

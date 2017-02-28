@@ -1,15 +1,32 @@
 {% extends 'base.html' %}
 
+<html>
+<head>
+
+    <title>Sammukas</title>
+</head>
+<body>
+
+
 {% block content %}
-   <div class="jumbotron">
 
-        <p>You are on your Dashboard</p>
-        <p>{{ user.get_monthly_steps }}</p>
+    <div class="jumbotron">
+
+
+        <p><b>Samme kokku: {{ user.get_monthly_steps }}</b></p>
+        <p><b>Parim päev: {{ user.get_max_steps }}</b></p>
+        <p>Keskmine: {{ user.get_avg_steps }} </p>
+        <p>Nässus päev: {{ user.get_min_steps }} </p>
+        <h2>Jooksev kuu</h2>
         {% for step in user.stepsList %}
-            <div>{{ step.insertion_date}}, {{ step.steps}}</div>
+            <div>{{ step.insertion_date }}, {{ step.steps }}</div>
         {% endfor %}
-
-       <a href="{% url 'add_steps' %}" >Add steps</a>
     </div>
 
+
+
 {% endblock %}
+</body>
+</html>
+<li><a href="index.html" title="">Avaleht</a></li>
+<li><a href="index.html" title="">Teenused</a></li>
