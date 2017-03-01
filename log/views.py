@@ -1,4 +1,4 @@
-import user
+
 from itertools import count
 
 from django.contrib.auth.models import User
